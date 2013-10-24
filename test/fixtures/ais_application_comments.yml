@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  banner_pidm: MyString
+  application_term: MyString
+  application_number: 1
+  originator: MyString
+  comment: MyText
+
+two:
+  banner_pidm: MyString
+  application_term: MyString
+  application_number: 1
+  originator: MyString
+  comment: MyText

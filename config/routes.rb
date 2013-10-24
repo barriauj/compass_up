@@ -1,4 +1,11 @@
 CompassUp::Application.routes.draw do
+  resources :ais_application_comments do
+    collection do
+      post :import
+    end    
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

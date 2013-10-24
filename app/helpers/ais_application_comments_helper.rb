@@ -1,0 +1,2 @@
+module AisApplicationCommentsHelper
+end
