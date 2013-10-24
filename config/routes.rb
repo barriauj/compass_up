@@ -1,4 +1,10 @@
 CompassUp::Application.routes.draw do
+  resources :ais_checklists do
+    collection do
+      post :import
+    end    
+  end
+
   resources :ais_attributes do
     collection do
       post :import
@@ -10,7 +16,6 @@ CompassUp::Application.routes.draw do
       post :import
     end    
   end
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,44 @@
+<%= form_tag import_ais_checklists_path, multipart: true do %>
+	<%= file_field_tag :file %>
+	<%= submit_tag "Import" %>
+<% end %>
+
+<h1>Listing ais_checklists</h1>
+
+<table>
+  <tr>
+    <th>Banner pidm</th>
+    <th>Application term</th>
+    <th>Application number</th>
+    <th>Requirement code</th>
+    <th>Received date</th>
+    <th>Item</th>
+    <th>Item description</th>
+    <th>Ckst code</th>
+    <th>Mandatory</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ais_checklists.each do |ais_checklist| %>
+  <tr>
+    <td><%= ais_checklist.banner_pidm %></td>
+    <td><%= ais_checklist.application_term %></td>
+    <td><%= ais_checklist.application_number %></td>
+    <td><%= ais_checklist.requirement_code %></td>
+    <td><%= ais_checklist.received_date %></td>
+    <td><%= ais_checklist.item %></td>
+    <td><%= ais_checklist.item_description %></td>
+    <td><%= ais_checklist.ckst_code %></td>
+    <td><%= ais_checklist.mandatory %></td>
+    <td><%= link_to 'Show', ais_checklist %></td>
+    <td><%= link_to 'Edit', edit_ais_checklist_path(ais_checklist) %></td>
+    <td><%= link_to 'Destroy', ais_checklist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ais checklist', new_ais_checklist_path %>
