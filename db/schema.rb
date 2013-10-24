@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131024191700) do
+ActiveRecord::Schema.define(:version => 20131024195132) do
 
   create_table "ais_application_comments", :force => true do |t|
     t.string   "banner_pidm"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(:version => 20131024191700) do
     t.integer  "application_number"
     t.string   "originator"
     t.text     "comment"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "ais_attributes", :force => true do |t|
+    t.string   "banner_pidm"
+    t.string   "application_term"
+    t.string   "application_number"
+    t.string   "name"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end

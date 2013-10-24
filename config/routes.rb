@@ -1,4 +1,10 @@
 CompassUp::Application.routes.draw do
+  resources :ais_attributes do
+    collection do
+      post :import
+    end    
+  end
+
   resources :ais_application_comments do
     collection do
       post :import

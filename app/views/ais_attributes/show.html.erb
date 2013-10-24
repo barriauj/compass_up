@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Banner pidm:</b>
+  <%= @ais_attribute.banner_pidm %>
+</p>
+
+<p>
+  <b>Application term:</b>
+  <%= @ais_attribute.application_term %>
+</p>
+
+<p>
+  <b>Application number:</b>
+  <%= @ais_attribute.application_number %>
+</p>
+
+<p>
+  <b>Attribute:</b>
+  <%= @ais_attribute.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_ais_attribute_path(@ais_attribute) %> |
+<%= link_to 'Back', ais_attributes_path %>

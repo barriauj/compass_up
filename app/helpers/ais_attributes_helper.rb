@@ -1,0 +1,2 @@
+module AisAttributesHelper
+end
