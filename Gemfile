@@ -38,3 +38,4 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'roo'
+gem 'bootstrap-sass', '~> 3.0.0.0.rc'
