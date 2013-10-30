@@ -2,7 +2,7 @@ class AisChecklistsController < ApplicationController
   # GET /ais_checklists
   # GET /ais_checklists.json
   def index
-    @ais_checklists = AisChecklist.limit(100)
+    @ais_checklists = AisChecklist.order("id").page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -83,6 +83,7 @@ class AisChecklistsController < ApplicationController
 
   def import
     if params[:file]
+      AisChecklist.delete_all
       AisChecklist.import(params[:file])
       redirect_to ais_checklists_url, notice: "Records imported."
     else

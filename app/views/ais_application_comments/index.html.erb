@@ -7,28 +7,32 @@
 	<% end %>
 </div>
 
-<div class="panel panel-default">
+<div class="panel panel-default panel-primary">
 	<div class="panel-heading">
 		<h3 class="panel-title">AIS Application Comments</h3>
 	</div>
 	<table class="table table-condensed table-striped table-hover">
-	  <tr>
-	    <th>PIDM</th>
-	    <th>Term</th>
-	    <th>Application No.</th>
-	    <th>Originator</th>
-	    <th>Comment</th>
-	  </tr>
+		<thead>
+		  <tr>
+		    <th>PIDM</th>
+		    <th>Term</th>
+		    <th>Application No.</th>
+		    <th>Originator</th>
+		    <th>Comment</th>
+		  </tr>
+		</thead>
 
-	<% @ais_application_comments.each do |ais_application_comment| %>
-	  <tr>
-	    <td><%= ais_application_comment.banner_pidm %></td>
-	    <td><%= ais_application_comment.application_term %></td>
-	    <td><%= ais_application_comment.application_number %></td>
-	    <td><%= ais_application_comment.originator %></td>
-	    <td><%= ais_application_comment.comment.truncate(100) %></td>
-	  </tr>
-	<% end %>
+		<tbody>
+			<% @ais_application_comments.each do |ais_application_comment| %>
+			  <tr>
+			    <td><%= ais_application_comment.banner_pidm %></td>
+			    <td><%= ais_application_comment.application_term %></td>
+			    <td><%= ais_application_comment.application_number %></td>
+			    <td><%= ais_application_comment.originator %></td>
+			    <td><%= ais_application_comment.comment.truncate(100) %></td>
+			  </tr>
+			<% end %>
+		</tbody>
 	</table>
 	<div class="panel-footer">
 		<%= paginate @ais_application_comments %>
