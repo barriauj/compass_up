@@ -1,4 +1,5 @@
 CompassUp::Application.routes.draw do
+
   resources :ais_checklists do
     collection do
       post :import

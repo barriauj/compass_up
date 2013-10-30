@@ -39,3 +39,6 @@ gem 'jquery-rails'
 
 gem 'roo'
 gem 'bootstrap-sass', '~> 3.0.0.0.rc'
+gem 'net-sftp'
+gem 'figaro'
+gem 'gpgme'
