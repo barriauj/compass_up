@@ -1,34 +1,38 @@
-<%= form_tag import_ais_attributes_path, multipart: true do %>
-	<%= file_field_tag :file %>
-	<%= submit_tag "Import" %>
-<% end %>
+<div class="well">
+	<%= form_tag import_ais_attributes_path, multipart: true, role: "form", class: "form-inline" do %>
+		<div class="form-group">
+			<%= file_field_tag :file %>
+		</div>
+		<button type="submit" class="btn btn-default" name="commit">Import</button>
+	<% end %>
+</div>
 
-<h1>Listing ais_attributes</h1>
-
-<table>
-  <tr>
-    <th>Banner pidm</th>
-    <th>Application term</th>
-    <th>Application number</th>
-    <th>Attribute</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @ais_attributes.each do |ais_attribute| %>
-  <tr>
-    <td><%= ais_attribute.banner_pidm %></td>
-    <td><%= ais_attribute.application_term %></td>
-    <td><%= ais_attribute.application_number %></td>
-    <td><%= ais_attribute.name %></td>
-    <td><%= link_to 'Show', ais_attribute %></td>
-    <td><%= link_to 'Edit', edit_ais_attribute_path(ais_attribute) %></td>
-    <td><%= link_to 'Destroy', ais_attribute, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Ais attribute', new_ais_attribute_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">AIS Attributes</h3>
+  </div>
+	<table class="table table-condensed table-striped table-hover">
+		<thead>
+		  <tr>
+		    <th>PIDM</th>
+		    <th>Term</th>
+		    <th>Application No.</th>
+		    <th>Attribute</th>
+		  </tr>
+		</thead>
+		
+		<tbody>
+			<% @ais_attributes.each do |ais_attribute| %>
+		  <tr>
+		    <td><%= ais_attribute.banner_pidm %></td>
+		    <td><%= ais_attribute.application_term %></td>
+		    <td><%= ais_attribute.application_number %></td>
+		    <td><%= ais_attribute.name %></td>
+		  </tr>
+			<% end %>
+		</tbody>
+	</table>
+	<div class="panel-footer">
+		<%= paginate @ais_attributes %>
+	</div>
+</div>

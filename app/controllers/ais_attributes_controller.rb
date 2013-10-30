@@ -2,7 +2,7 @@ class AisAttributesController < ApplicationController
   # GET /ais_attributes
   # GET /ais_attributes.json
   def index
-    @ais_attributes = AisAttribute.all
+    @ais_attributes = AisAttribute.order("id").page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -83,6 +83,7 @@ class AisAttributesController < ApplicationController
 
   def import
     if params[:file]
+      AisAttribute.delete_all
       AisAttribute.import(params[:file])
       redirect_to ais_attributes_url, notice: "Records imported."
     else
