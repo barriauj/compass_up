@@ -1,36 +1,36 @@
-<%= form_tag import_ais_application_comments_path, multipart: true do %>
-	<%= file_field_tag :file %>
-	<%= submit_tag "Import" %>
-<% end %>
+<div class="well">
+	<%= form_tag import_ais_application_comments_path, multipart: true, role: "form", class: "form-inline" do %>
+		<div class="form-group">
+			<%= file_field_tag :file %>
+		</div>
+	  <button type="submit" class="btn btn-default" name="commit">Import</button>
+	<% end %>
+</div>
 
-<h1>Listing ais_application_comments</h1>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">AIS Application Comments</h3>
+	</div>
+	<table class="table table-condensed table-striped table-hover">
+	  <tr>
+	    <th>PIDM</th>
+	    <th>Term</th>
+	    <th>Application No.</th>
+	    <th>Originator</th>
+	    <th>Comment</th>
+	  </tr>
 
-<table>
-  <tr>
-    <th>Banner pidm</th>
-    <th>Application term</th>
-    <th>Application number</th>
-    <th>Originator</th>
-    <th>Comment</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @ais_application_comments.each do |ais_application_comment| %>
-  <tr>
-    <td><%= ais_application_comment.banner_pidm %></td>
-    <td><%= ais_application_comment.application_term %></td>
-    <td><%= ais_application_comment.application_number %></td>
-    <td><%= ais_application_comment.originator %></td>
-    <td><%= ais_application_comment.comment %></td>
-    <td><%= link_to 'Show', ais_application_comment %></td>
-    <td><%= link_to 'Edit', edit_ais_application_comment_path(ais_application_comment) %></td>
-    <td><%= link_to 'Destroy', ais_application_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Ais application comment', new_ais_application_comment_path %>
+	<% @ais_application_comments.each do |ais_application_comment| %>
+	  <tr>
+	    <td><%= ais_application_comment.banner_pidm %></td>
+	    <td><%= ais_application_comment.application_term %></td>
+	    <td><%= ais_application_comment.application_number %></td>
+	    <td><%= ais_application_comment.originator %></td>
+	    <td><%= ais_application_comment.comment.truncate(100) %></td>
+	  </tr>
+	<% end %>
+	</table>
+	<div class="panel-footer">
+		<%= paginate @ais_application_comments %>
+	</div>
+</div>

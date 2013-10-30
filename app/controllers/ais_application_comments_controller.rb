@@ -2,7 +2,7 @@ class AisApplicationCommentsController < ApplicationController
   # GET /ais_application_comments
   # GET /ais_application_comments.json
   def index
-    @ais_application_comments = AisApplicationComment.all
+    @ais_application_comments = AisApplicationComment.order("id").page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -83,6 +83,7 @@ class AisApplicationCommentsController < ApplicationController
   
   def import
     if params[:file]
+      AisApplicationComment.delete_all
       AisApplicationComment.import(params[:file])
       redirect_to ais_application_comments_url, notice: "Records imported."
     else
