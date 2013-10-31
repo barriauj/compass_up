@@ -43,3 +43,8 @@ gem 'net-sftp'
 gem 'figaro'
 gem 'gpgme'
 gem 'kaminari'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end

@@ -15,6 +15,7 @@ CompassUp::Application.routes.draw do
   resources :ais_application_comments do
     collection do
       post :import
+      get :show_import
     end    
   end
 

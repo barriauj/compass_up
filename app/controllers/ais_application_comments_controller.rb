@@ -81,13 +81,16 @@ class AisApplicationCommentsController < ApplicationController
     end
   end
   
+  def show_import
+  end
+  
   def import
     if params[:file]
       AisApplicationComment.delete_all
       AisApplicationComment.import(params[:file])
       redirect_to ais_application_comments_url, notice: "Records imported."
     else
-      redirect_to ais_application_comments_path, alert: "Please select a file."
+      redirect_to show_import_ais_application_comments_path, alert: "Please select a file."
     end
   end  
   

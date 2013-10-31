@@ -1,37 +1,57 @@
-<%= form_for(@ais_application_comment) do |f| %>
-  <% if @ais_application_comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@ais_application_comment.errors.count, "error") %> prohibited this ais_application_comment from being saved:</h2>
+<div>
+	<%= form_for @ais_application_comment, html: { class: "form-horizontal", role: "form" } do |f| %>
+	  <% if @ais_application_comment.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@ais_application_comment.errors.count, "error") %> prohibited this ais_application_comment from being saved:</h2>
 
-      <ul>
-      <% @ais_application_comment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	      <ul>
+	      <% @ais_application_comment.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
 
-  <div class="field">
-    <%= f.label :banner_pidm %><br />
-    <%= f.text_field :banner_pidm %>
-  </div>
-  <div class="field">
-    <%= f.label :application_term %><br />
-    <%= f.text_field :application_term %>
-  </div>
-  <div class="field">
-    <%= f.label :application_number %><br />
-    <%= f.number_field :application_number %>
-  </div>
-  <div class="field">
-    <%= f.label :originator %><br />
-    <%= f.text_field :originator %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %><br />
-    <%= f.text_area :comment %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+	  <div class="form-group">
+	    <%= f.label :banner_pidm, "PIDM", class: "col-sm-2 control-label" %>
+			<div class="col-sm-10">
+		    <%= f.text_field :banner_pidm, class: "form-control", placeholder: "PIDM" %>
+			</div>
+	  </div>
+	
+	  <div class="form-group">
+	    <%= f.label :application_term, "Term", class: "col-sm-2 control-label" %>
+			<div class="col-sm-10">
+	    	<%= f.text_field :application_term, class: "form-control", placeholder: "Term" %>
+			</div>
+	  </div>
+	
+	  <div class="form-group">
+	    <%= f.label :application_number, "Application No.", class: "col-sm-2 control-label" %>
+			<div class="col-sm-10">
+	    	<%= f.number_field :application_number, class: "form-control", placeholder: "Application No." %>
+			</div>
+	  </div>
+	
+	  <div class="form-group">
+	    <%= f.label :originator, class: "col-sm-2 control-label" %>
+			<div class="col-sm-10">
+	    	<%= f.text_field :originator, class: "form-control", placeholder: "Originator" %>
+			</div>
+	  </div>
+	
+	  <div class="form-group">
+	    <%= f.label :comment, class: "col-sm-2 control-label" %>
+			<div class="col-sm-10">
+	    	<%= f.text_area :comment, class: "form-control", placeholder: "Comment" %>
+			</div>
+	  </div>
+	
+	  <div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+		    <%= f.submit "Submit", class: "btn btn-default" %>
+			</div>
+	  </div>
+	
+	<% end %>
+</div>

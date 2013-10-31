@@ -1,30 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h2>AIS Application Comment</h2>
+</div>
 
-<p>
-  <b>Banner pidm:</b>
-  <%= @ais_application_comment.banner_pidm %>
-</p>
+<%= render 'record_navigation' %>
 
-<p>
-  <b>Application term:</b>
-  <%= @ais_application_comment.application_term %>
-</p>
-
-<p>
-  <b>Application number:</b>
-  <%= @ais_application_comment.application_number %>
-</p>
-
-<p>
-  <b>Originator:</b>
-  <%= @ais_application_comment.originator %>
-</p>
-
-<p>
-  <b>Comment:</b>
-  <%= @ais_application_comment.comment %>
-</p>
-
-
-<%= link_to 'Edit', edit_ais_application_comment_path(@ais_application_comment) %> |
-<%= link_to 'Back', ais_application_comments_path %>
+<dl class="dl-horizontal">
+  <dt>PIDM</dt>
+  <dd><%= @ais_application_comment.banner_pidm %></dd>
+  <dt>Term</dt>
+  <dd><%= @ais_application_comment.application_term %></dd>
+  <dt>Application No.</dt>
+  <dd><%= @ais_application_comment.application_number %></dd>
+  <dt>Originator</dt>
+  <dd><%= @ais_application_comment.originator %></dd>
+  <dt>Comment</dt>
+  <dd><%= @ais_application_comment.comment %></dd>
+</dl>

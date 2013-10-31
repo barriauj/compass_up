@@ -16,3 +16,21 @@
 
 body { padding-top: 70px; }
 
+.shrink {
+	width: 1%;
+}
+
+.nav.nav-tabs {
+	list-style: none outside none;
+	margin-bottom: 18px;
+	margin-left: 0;
+}
+
+//.nav.nav-tabs li a {
+//    color: #000000;
+//}
+
+.table td a span.glyphicon {
+	color: #000000;
+}
+
