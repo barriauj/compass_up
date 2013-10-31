@@ -1,57 +1,51 @@
-<div>
-	<%= form_for @ais_application_comment, html: { class: "form-horizontal", role: "form" } do |f| %>
-	  <% if @ais_application_comment.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@ais_application_comment.errors.count, "error") %> prohibited this ais_application_comment from being saved:</h2>
+<%= form_for @ais_application_comment, html: { class: "form-horizontal", role: "form" } do |f| %>
 
-	      <ul>
-	      <% @ais_application_comment.errors.full_messages.each do |msg| %>
-	        <li><%= msg %></li>
-	      <% end %>
-	      </ul>
-	    </div>
-	  <% end %>
+  <%= render 'layouts/form_errors', record: @ais_application_comment %>
 
-	  <div class="form-group">
-	    <%= f.label :banner_pidm, "PIDM", class: "col-sm-2 control-label" %>
-			<div class="col-sm-10">
-		    <%= f.text_field :banner_pidm, class: "form-control", placeholder: "PIDM" %>
-			</div>
-	  </div>
-	
-	  <div class="form-group">
-	    <%= f.label :application_term, "Term", class: "col-sm-2 control-label" %>
-			<div class="col-sm-10">
-	    	<%= f.text_field :application_term, class: "form-control", placeholder: "Term" %>
-			</div>
-	  </div>
-	
-	  <div class="form-group">
-	    <%= f.label :application_number, "Application No.", class: "col-sm-2 control-label" %>
-			<div class="col-sm-10">
-	    	<%= f.number_field :application_number, class: "form-control", placeholder: "Application No." %>
-			</div>
-	  </div>
-	
-	  <div class="form-group">
-	    <%= f.label :originator, class: "col-sm-2 control-label" %>
-			<div class="col-sm-10">
-	    	<%= f.text_field :originator, class: "form-control", placeholder: "Originator" %>
-			</div>
-	  </div>
-	
-	  <div class="form-group">
-	    <%= f.label :comment, class: "col-sm-2 control-label" %>
-			<div class="col-sm-10">
-	    	<%= f.text_area :comment, class: "form-control", placeholder: "Comment" %>
-			</div>
-	  </div>
-	
-	  <div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-		    <%= f.submit "Submit", class: "btn btn-default" %>
-			</div>
-	  </div>
-	
-	<% end %>
-</div>
+  <% if @ais_application_comment.errors.any? && @ais_application_comment.errors.include?(:banner_pidm) %><div class="form-group has-error"><% else %><div class="form-group"><% end %>
+    <%= f.label :banner_pidm, "PIDM", class: "col-sm-2 control-label" %>
+		<div class="col-sm-10">
+	    <%= f.text_field :banner_pidm, class: "form-control", placeholder: "PIDM" %>
+			<p class="help-block">Required.</p>
+		</div>
+  </div>
+
+  <% if @ais_application_comment.errors.any? && @ais_application_comment.errors.include?(:application_term) %><div class="form-group has-error"><% else %><div class="form-group"><% end %>
+    <%= f.label :application_term, "Term", class: "col-sm-2 control-label" %>
+		<div class="col-sm-10">
+    	<%= f.text_field :application_term, class: "form-control", placeholder: "Term" %>
+			<p class="help-block">Required.</p>
+		</div>
+  </div>
+
+  <% if @ais_application_comment.errors.any? && @ais_application_comment.errors.include?(:application_number) %><div class="form-group has-error"><% else %><div class="form-group"><% end %>
+    <%= f.label :application_number, "Application No.", class: "col-sm-2 control-label" %>
+		<div class="col-sm-10">
+    	<%= f.number_field :application_number, class: "form-control", placeholder: "Application No." %>
+			<p class="help-block">Required.</p>
+		</div>
+  </div>
+
+  <% if @ais_application_comment.errors.any? && @ais_application_comment.errors.include?(:originator) %><div class="form-group has-error"><% else %><div class="form-group"><% end %>
+    <%= f.label :originator, class: "col-sm-2 control-label" %>
+		<div class="col-sm-10">
+    	<%= f.text_field :originator, class: "form-control", placeholder: "Originator" %>
+			<p class="help-block">Required.</p>
+		</div>
+  </div>
+
+  <% if @ais_application_comment.errors.any? && @ais_application_comment.errors.include?(:comment) %><div class="form-group has-error"><% else %><div class="form-group"><% end %>
+    <%= f.label :comment, class: "col-sm-2 control-label" %>
+		<div class="col-sm-10">
+    	<%= f.text_area :comment, class: "form-control", placeholder: "Comment" %>
+			<p class="help-block">Required.</p>
+		</div>
+  </div>
+
+  <div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+	    <%= f.submit "Submit", class: "btn btn-default" %>
+		</div>
+  </div>
+
+<% end %>

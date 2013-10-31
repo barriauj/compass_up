@@ -1,38 +1,42 @@
-<div class="well">
+<div class="page-header">
+  <h2>AIS Attributes</h2>
+</div>
+
+<%= render 'list_navigation' %>
+
+<table class="table table-condensed table-striped table-hover">
+	<thead>
+	  <tr>
+	    <th>PIDM</th>
+	    <th>Term</th>
+	    <th>Application No.</th>
+	    <th>Attribute</th>
+	  </tr>
+	</thead>
+	
+	<tbody>
+		<% @ais_attributes.each do |ais_attribute| %>
+	  <tr>
+	    <td><%= ais_attribute.banner_pidm %></td>
+	    <td><%= ais_attribute.application_term %></td>
+	    <td><%= ais_attribute.application_number %></td>
+	    <td><%= ais_attribute.name %></td>
+	  </tr>
+		<% end %>
+	</tbody>
+</table>
+	
+<div class="panel panel-default">
+	<div class="panel-footer">
+		<%= paginate @ais_attributes %>
+	</div>
+</div>
+
+<!-- <div class="well">
 	<%= form_tag import_ais_attributes_path, multipart: true, role: "form", class: "form-inline" do %>
 		<div class="form-group">
 			<%= file_field_tag :file %>
 		</div>
 		<button type="submit" class="btn btn-default" name="commit">Import</button>
 	<% end %>
-</div>
-
-<div class="panel panel-default panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title">AIS Attributes</h3>
-  </div>
-	<table class="table table-condensed table-striped table-hover">
-		<thead>
-		  <tr>
-		    <th>PIDM</th>
-		    <th>Term</th>
-		    <th>Application No.</th>
-		    <th>Attribute</th>
-		  </tr>
-		</thead>
-		
-		<tbody>
-			<% @ais_attributes.each do |ais_attribute| %>
-		  <tr>
-		    <td><%= ais_attribute.banner_pidm %></td>
-		    <td><%= ais_attribute.application_term %></td>
-		    <td><%= ais_attribute.application_number %></td>
-		    <td><%= ais_attribute.name %></td>
-		  </tr>
-			<% end %>
-		</tbody>
-	</table>
-	<div class="panel-footer">
-		<%= paginate @ais_attributes %>
-	</div>
-</div>
+</div> -->

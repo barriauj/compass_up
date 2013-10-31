@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def ap(path)
+  def active(path)
     "active" if current_page?(path)
   end
 end

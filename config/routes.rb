@@ -3,12 +3,14 @@ CompassUp::Application.routes.draw do
   resources :ais_checklists do
     collection do
       post :import
+      get :show_import
     end    
   end
 
   resources :ais_attributes do
     collection do
       post :import
+      get :show_import
     end    
   end
 

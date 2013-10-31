@@ -1,6 +1,8 @@
 class AisApplicationComment < ActiveRecord::Base
   attr_accessible :application_number, :application_term, :banner_pidm, :comment, :originator
-
+  
+  validates :application_number, :application_term, :banner_pidm, :comment, :originator, presence: true
+  
   # BannerPIDM^ApplicationTerm^ApplicationNumber^Originator^Comment
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
