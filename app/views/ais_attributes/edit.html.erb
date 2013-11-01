@@ -1,6 +1,28 @@
-<h1>Editing ais_attribute</h1>
+<div class="page-header">
+  <h2>Update AIS Attribute</h2>
+</div>
+
+<ul class="nav nav-tabs">
+	<li>
+		<%= link_to ais_attributes_path do -%>
+		   <span class="glyphicon glyphicon-list"></span> List
+		<% end -%>
+	</li>
+	<li>
+		<%= link_to @ais_attribute do -%>
+		   <span class="glyphicon glyphicon-info-sign"></span> Details
+		<% end -%>
+	</li>
+	<li class="active">
+		<%= link_to edit_ais_attribute_path(@ais_attribute) do -%>
+		   <span class="glyphicon glyphicon-pencil"></span> Edit
+		<% end -%>
+	</li>
+	<li>
+		<%= link_to are_you_sure_ais_attribute_path(@ais_attribute) do -%>
+		   <span class="glyphicon glyphicon-remove"></span> Delete
+		<% end -%>
+	</li>
+</ul>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @ais_attribute %> |
-<%= link_to 'Back', ais_attributes_path %>

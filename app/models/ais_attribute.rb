@@ -1,6 +1,8 @@
 class AisAttribute < ActiveRecord::Base
   attr_accessible :application_number, :application_term, :name, :banner_pidm
 
+  validates :application_number, :application_term, :name, :banner_pidm, presence: true
+
   # BANNERPIDM^APPLICATIONTERM^APPLICATIONNUMBER^ATTRIBUTE
   def self.import(file)
     spreadsheet = open_spreadsheet(file)

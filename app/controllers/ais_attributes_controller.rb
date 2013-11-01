@@ -44,7 +44,7 @@ class AisAttributesController < ApplicationController
 
     respond_to do |format|
       if @ais_attribute.save
-        format.html { redirect_to @ais_attribute, notice: 'Ais attribute was successfully created.' }
+        format.html { redirect_to @ais_attribute, notice: 'Record was successfully created.' }
         format.json { render json: @ais_attribute, status: :created, location: @ais_attribute }
       else
         format.html { render action: "new" }
@@ -60,13 +60,18 @@ class AisAttributesController < ApplicationController
 
     respond_to do |format|
       if @ais_attribute.update_attributes(params[:ais_attribute])
-        format.html { redirect_to @ais_attribute, notice: 'Ais attribute was successfully updated.' }
+        format.html { redirect_to @ais_attribute, notice: 'Record was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.json { render json: @ais_attribute.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # GET /ais_attributes/1/are_you_sure
+  def are_you_sure
+    @ais_attribute = AisAttribute.find(params[:id])
   end
 
   # DELETE /ais_attributes/1
@@ -76,11 +81,14 @@ class AisAttributesController < ApplicationController
     @ais_attribute.destroy
 
     respond_to do |format|
-      format.html { redirect_to ais_attributes_url }
+      format.html { redirect_to ais_attributes_url, notice: 'Record was successfully deleted.' }
       format.json { head :no_content }
     end
   end
 
+  def show_import
+  end
+  
   def import
     if params[:file]
       AisAttribute.delete_all
