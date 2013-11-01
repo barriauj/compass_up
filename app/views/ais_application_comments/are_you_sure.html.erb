@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h2>Update AIS Application Comments</h2>
+  <h2>Delete AIS Application Comment</h2>
 </div>
 
 <ul class="nav nav-tabs">
@@ -13,17 +13,31 @@
 		   <span class="glyphicon glyphicon-info-sign"></span> Details
 		<% end -%>
 	</li>
-	<li class="active">
+	<li>
 		<%= link_to edit_ais_application_comment_path(@ais_application_comment) do -%>
 		   <span class="glyphicon glyphicon-pencil"></span> Edit
 		<% end -%>
 	</li>
-	<li>
+	<li class="active">
 		<%= link_to are_you_sure_ais_application_comment_path(@ais_application_comment) do -%>
 		   <span class="glyphicon glyphicon-remove"></span> Delete
 		<% end -%>
 	</li>
 </ul>
 
-<%= render 'form' %>
-
+<div class="panel panel-default panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title">Warning, you are about to delete the following record.</h3>
+  </div>
+  <div class="panel-body">
+		<%= render 'details' %>
+	  <div class="row">
+			<div class="col-sm-offset-2 col-sm-10">
+				<%= link_to @ais_application_comment, class: "btn btn-default btn-danger", method: :delete do -%>
+				<span class="glyphicon glyphicon-remove"></span> Delete
+				<% end -%>
+				<%= link_to "Cancel", :back, class: "btn btn-default" %>
+			</div>
+	  </div>
+	</div>
+</div>

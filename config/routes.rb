@@ -1,6 +1,9 @@
 CompassUp::Application.routes.draw do
 
   resources :ais_checklists do
+    member do
+      get :are_you_sure
+    end
     collection do
       post :import
       get :show_import
@@ -8,6 +11,9 @@ CompassUp::Application.routes.draw do
   end
 
   resources :ais_attributes do
+    member do
+      get :are_you_sure
+    end
     collection do
       post :import
       get :show_import
@@ -15,6 +21,9 @@ CompassUp::Application.routes.draw do
   end
 
   resources :ais_application_comments do
+    member do
+      get :are_you_sure
+    end
     collection do
       post :import
       get :show_import

@@ -44,7 +44,7 @@ class AisApplicationCommentsController < ApplicationController
 
     respond_to do |format|
       if @ais_application_comment.save
-        format.html { redirect_to @ais_application_comment, notice: 'Ais application comment was successfully created.' }
+        format.html { redirect_to @ais_application_comment, notice: 'Record was successfully created.' }
         format.json { render json: @ais_application_comment, status: :created, location: @ais_application_comment }
       else
         format.html { render action: "new" }
@@ -60,13 +60,18 @@ class AisApplicationCommentsController < ApplicationController
 
     respond_to do |format|
       if @ais_application_comment.update_attributes(params[:ais_application_comment])
-        format.html { redirect_to @ais_application_comment, notice: 'Ais application comment was successfully updated.' }
+        format.html { redirect_to @ais_application_comment, notice: 'Record was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.json { render json: @ais_application_comment.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  # GET /ais_application_comments/1/are_you_sure
+  def are_you_sure
+    @ais_application_comment = AisApplicationComment.find(params[:id])
   end
 
   # DELETE /ais_application_comments/1
@@ -76,7 +81,7 @@ class AisApplicationCommentsController < ApplicationController
     @ais_application_comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to ais_application_comments_url }
+      format.html { redirect_to ais_application_comments_url, notice: 'Record was successfully deleted.' }
       format.json { head :no_content }
     end
   end

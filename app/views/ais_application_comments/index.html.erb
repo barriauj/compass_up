@@ -2,7 +2,23 @@
   <h2>AIS Application Comments</h2>
 </div>
 
-<%= render 'list_navigation' %>
+<ul class="nav nav-tabs">
+	<li class="active">
+		<%= link_to ais_application_comments_path do -%>
+		   <span class="glyphicon glyphicon-list"></span> List
+		<% end -%>
+	</li>
+	<li>
+		<%= link_to new_ais_application_comment_path do -%>
+		   <span class="glyphicon glyphicon-plus"></span> Add New
+		<% end -%>
+	</li>
+	<li>
+		<%= link_to show_import_ais_application_comments_path do -%>
+		   <span class="glyphicon glyphicon-import"></span> Import
+		<% end -%>
+	</li>
+</ul>
 
 <table class="table table-condensed table-striped table-hover">
 	<thead>
@@ -12,6 +28,7 @@
 	    <th>Application No.</th>
 	    <th>Originator</th>
 	    <th>Comment</th>
+			
 			<th class="shrink"></th>
 			<th class="shrink"></th>
 			<th class="shrink"></th>
@@ -19,20 +36,31 @@
 	</thead>
 
 	<tbody>
-		<% @ais_application_comments.each do |ais_application_comment| %>
-		  <tr>
-		    <td><%= ais_application_comment.banner_pidm %></td>
-		    <td><%= ais_application_comment.application_term %></td>
-		    <td><%= ais_application_comment.application_number %></td>
-		    <td><%= ais_application_comment.originator %></td>
-		    <td><%= ais_application_comment.comment.truncate(100) if ais_application_comment.comment %></td>
-				<td><%= link_to ais_application_comment do %><span class="glyphicon glyphicon-info-sign"></span><% end %></td>
-				<td><%= link_to edit_ais_application_comment_path(ais_application_comment) do %><span class="glyphicon glyphicon-pencil"></span><% end %></td>
-				<td><%= link_to ais_application_comment, method: :delete, data: { confirm: 'Are you sure?' } do %>
-					<span class="glyphicon glyphicon-remove"></span>
-				<% end %></td>
-		  </tr>
-		<% end %>
+		<% @ais_application_comments.each do |ais_application_comment| -%>
+	  <tr>
+	    <td><%= ais_application_comment.banner_pidm %></td>
+	    <td><%= ais_application_comment.application_term %></td>
+	    <td><%= ais_application_comment.application_number %></td>
+	    <td><%= ais_application_comment.originator %></td>
+	    <td><%= ais_application_comment.comment.truncate(100) if ais_application_comment.comment %></td>
+			
+			<td>
+				<%= link_to ais_application_comment do -%>
+				<span class="glyphicon glyphicon-info-sign"></span>
+				<% end -%>
+			</td>
+			<td>
+				<%= link_to edit_ais_application_comment_path(ais_application_comment) do -%>
+				<span class="glyphicon glyphicon-pencil"></span>
+				<% end -%>
+			</td>
+			<td>
+				<%= link_to are_you_sure_ais_application_comment_path(ais_application_comment) do -%>
+				<span class="glyphicon glyphicon-remove"></span>
+				<% end -%>
+			</td>
+	  </tr>
+		<% end -%>
 	</tbody>
 </table>
 

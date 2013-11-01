@@ -2,17 +2,27 @@
   <h2>AIS Application Comment</h2>
 </div>
 
-<%= render 'record_navigation' %>
+<ul class="nav nav-tabs">
+	<li>
+		<%= link_to ais_application_comments_path do -%>
+		   <span class="glyphicon glyphicon-list"></span> List
+		<% end -%>
+	</li>
+	<li class="active">
+		<%= link_to ais_application_comment_path(@ais_application_comment) do -%>
+		   <span class="glyphicon glyphicon-info-sign"></span> Details
+		<% end -%>
+	</li>
+	<li>
+		<%= link_to edit_ais_application_comment_path(@ais_application_comment) do -%>
+		   <span class="glyphicon glyphicon-pencil"></span> Edit
+		<% end -%>
+	</li>
+	<li>
+		<%= link_to are_you_sure_ais_application_comment_path(@ais_application_comment) do -%>
+		   <span class="glyphicon glyphicon-remove"></span> Delete
+		<% end -%>
+	</li>
+</ul>
 
-<dl class="dl-horizontal">
-  <dt>PIDM</dt>
-  <dd><%= @ais_application_comment.banner_pidm %></dd>
-  <dt>Term</dt>
-  <dd><%= @ais_application_comment.application_term %></dd>
-  <dt>Application No.</dt>
-  <dd><%= @ais_application_comment.application_number %></dd>
-  <dt>Originator</dt>
-  <dd><%= @ais_application_comment.originator %></dd>
-  <dt>Comment</dt>
-  <dd><%= @ais_application_comment.comment %></dd>
-</dl>
+<%= render 'details' %>
