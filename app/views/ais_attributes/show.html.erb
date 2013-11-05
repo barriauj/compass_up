@@ -3,26 +3,12 @@
 </div>
 
 <ul class="nav nav-tabs">
-	<li>
-		<%= link_to ais_attributes_path do -%>
-		   <span class="glyphicon glyphicon-list"></span> List
-		<% end -%>
-	</li>
-	<li class="active">
-		<%= link_to ais_attribute_path(@ais_attribute) do -%>
-		   <span class="glyphicon glyphicon-info-sign"></span> Details
-		<% end -%>
-	</li>
-	<li>
-		<%= link_to edit_ais_attribute_path(@ais_attribute) do -%>
-		   <span class="glyphicon glyphicon-pencil"></span> Edit
-		<% end -%>
-	</li>
-	<li>
-		<%= link_to are_you_sure_ais_attribute_path(@ais_attribute) do -%>
-		   <span class="glyphicon glyphicon-remove"></span> Delete
-		<% end -%>
-	</li>
+	<%= nav_tab_link_to ais_attributes_path, "List", "glyphicon-list" %>
+	<%= nav_tab_link_to new_ais_attribute_path, "Add New", "glyphicon-plus" %>
+	<%= nav_tab_link_to @ais_attribute, "Details", "glyphicon-info-sign", class: "active" %>
+	<%= nav_tab_link_to edit_ais_attribute_path(@ais_attribute), "Edit", "glyphicon-pencil" %>
+	<%= nav_tab_link_to are_you_sure_ais_attribute_path(@ais_attribute), "Delete", "glyphicon-remove" %>
+	<%= nav_tab_link_to show_import_ais_attributes_path, "Import", "glyphicon-import" %>
 </ul>
 
 <%= render 'details' %>

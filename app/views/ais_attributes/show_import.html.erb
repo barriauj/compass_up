@@ -3,21 +3,12 @@
 </div>
 
 <ul class="nav nav-tabs">
-	<li>
-		<%= link_to ais_attributes_path do -%>
-		   <span class="glyphicon glyphicon-list"></span> List
-		<% end -%>
-	</li>
-	<li>
-		<%= link_to new_ais_attribute_path do -%>
-		   <span class="glyphicon glyphicon-plus"></span> Add New
-		<% end -%>
-	</li>
-	<li class="active">
-		<%= link_to show_import_ais_attributes_path do -%>
-		   <span class="glyphicon glyphicon-import"></span> Import
-		<% end -%>
-	</li>
+	<%= nav_tab_link_to ais_checklists_path, "List", "glyphicon-list" %>
+	<%= nav_tab_link_to new_ais_checklist_path, "Add New", "glyphicon-plus" %>
+	<%= nav_tab_link_to "#", "Details", "glyphicon-info-sign", class: "disabled" %>
+	<%= nav_tab_link_to "#", "Edit", "glyphicon-pencil", class: "disabled" %>
+	<%= nav_tab_link_to "#", "Delete", "glyphicon-remove", class: "disabled" %>
+	<%= nav_tab_link_to show_import_ais_checklists_path, "Import", "glyphicon-import", class: "active" %>
 </ul>
 
 <div class="panel panel-default panel-danger">
@@ -29,7 +20,7 @@
 			<div class="form-group">
 				<%= file_field_tag :file %>
 			</div>
-			<button type="submit" class="btn btn-default btn-danger" name="commit"><span class="glyphicon glyphicon-import"></span> Import</button>
+			<button type="submit" class="btn btn-danger" name="commit"><span class="glyphicon glyphicon-import"></span> Import</button>
 		<% end %>
 	</div>
 </div>
