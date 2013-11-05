@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h2>Delete AIS Checklist</h2>
+</div>
+
+<ul class="nav nav-tabs">
+	<li>
+		<%= link_to ais_checklists_path do -%>
+		   <span class="glyphicon glyphicon-list"></span> List
+		<% end -%>
+	</li>
+	<li>
+		<%= link_to @ais_checklist do -%>
+		   <span class="glyphicon glyphicon-info-sign"></span> Details
+		<% end -%>
+	</li>
+	<li>
+		<%= link_to edit_ais_attribute_path(@ais_checklist) do -%>
+		   <span class="glyphicon glyphicon-pencil"></span> Edit
+		<% end -%>
+	</li>
+	<li class="active">
+		<%= link_to are_you_sure_ais_attribute_path(@ais_checklist) do -%>
+		   <span class="glyphicon glyphicon-remove"></span> Delete
+		<% end -%>
+	</li>
+</ul>
+
+<div class="panel panel-default panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title">Warning, you are about to delete the following record.</h3>
+  </div>
+  <div class="panel-body">
+		<%= render 'details' %>
+	  <div class="row">
+			<div class="col-sm-offset-2 col-sm-10">
+				<%= link_to @ais_checklist, class: "btn btn-default btn-danger", method: :delete do -%>
+				<span class="glyphicon glyphicon-remove"></span> Delete
+				<% end -%>
+				<%= link_to "Cancel", :back, class: "btn btn-default" %>
+			</div>
+	  </div>
+	</div>
+</div>

@@ -90,12 +90,12 @@ class AisApplicationCommentsController < ApplicationController
   end
   
   def import
-    if params[:file]
+    if params[:file] && params[:spring_term] && params[:summer_term] && params[:fall_term]
       AisApplicationComment.delete_all
-      AisApplicationComment.import(params[:file])
+      AisApplicationComment.import(params[:file], [params[:spring_term], params[:summer_term], params[:fall_term]])
       redirect_to ais_application_comments_url, notice: "Records imported."
     else
-      redirect_to show_import_ais_application_comments_path, alert: "Please select a file."
+      redirect_to show_import_ais_application_comments_path, alert: "Please enter all terms and select a file."
     end
   end  
   

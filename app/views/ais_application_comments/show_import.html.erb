@@ -25,11 +25,42 @@
     <h3 class="panel-title">Warning! This will delete all records before importing.</h3>
   </div>
   <div class="panel-body">
-		<%= form_tag import_ais_application_comments_path, multipart: true, role: "form", class: "form-inline" do %>
-			<div class="form-group">
+		<%= form_tag import_ais_application_comments_path, multipart: true, role: "form", class: "form-horizontal" do %>
+		
+	  <div class="form-group">
+	    <%= label_tag "spring_term-label", "Spring Term", class: "col-sm-2 control-label" %>
+			<div class="col-sm-10">
+		    <%= text_field_tag "spring_term", "201412", class: "form-control", placeholder: "Spring Term" %>
+			</div>
+	  </div>
+		
+	  <div class="form-group">
+	    <%= label_tag "summer_term-label", "Summer Term", class: "col-sm-2 control-label" %>
+			<div class="col-sm-10">
+		    <%= text_field_tag "summer_term", "201422", class: "form-control", placeholder: "Summer Term" %>
+			</div>
+	  </div>
+		
+	  <div class="form-group">
+	    <%= label_tag "fall_term-label", "Fall Term", class: "col-sm-2 control-label" %>
+			<div class="col-sm-10">
+		    <%= text_field_tag "fall_term", "201432", class: "form-control", placeholder: "Fall Term" %>
+			</div>
+	  </div>
+		
+		<div class="form-group">
+			<%= label_tag "file-label", "File", class: "col-sm-2 control-label" %>
+			<div class="col-sm-10">
 				<%= file_field_tag :file %>
 			</div>
-			<button type="submit" class="btn btn-default btn-danger" name="commit"><span class="glyphicon glyphicon-import"></span> Import</button>
+		</div>
+		
+	  <div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default btn-danger" name="commit"><span class="glyphicon glyphicon-import"></span> Import</button>
+			</div>
+	  </div>
+		
 		<% end %>
 	</div>
 </div>

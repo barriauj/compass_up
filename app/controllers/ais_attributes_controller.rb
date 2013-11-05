@@ -90,12 +90,12 @@ class AisAttributesController < ApplicationController
   end
   
   def import
-    if params[:file]
+    if params[:file] && params[:spring_term] && params[:summer_term] && params[:fall_term]
       AisAttribute.delete_all
-      AisAttribute.import(params[:file])
+      AisAttribute.import(params[:file], [params[:spring_term], params[:summer_term], params[:fall_term]])
       redirect_to ais_attributes_url, notice: "Records imported."
     else
-      redirect_to ais_attributes_path, alert: "Please select a file."
+      redirect_to show_import_ais_attributes_path, alert: "Please enter all terms and select a file."
     end
   end  
 

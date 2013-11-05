@@ -1,50 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h2>AIS Checklist</h2>
+</div>
 
-<p>
-  <b>Banner pidm:</b>
-  <%= @ais_checklist.banner_pidm %>
-</p>
+<ul class="nav nav-tabs">
+	<li>
+		<%= link_to ais_checklists_path do -%>
+		   <span class="glyphicon glyphicon-list"></span> List
+		<% end -%>
+	</li>
+	<li class="active">
+		<%= link_to ais_checklist_path(@ais_checklist) do -%>
+		   <span class="glyphicon glyphicon-info-sign"></span> Details
+		<% end -%>
+	</li>
+	<li>
+		<%= link_to edit_ais_checklist_path(@ais_checklist) do -%>
+		   <span class="glyphicon glyphicon-pencil"></span> Edit
+		<% end -%>
+	</li>
+	<li>
+		<%= link_to are_you_sure_ais_checklist_path(@ais_checklist) do -%>
+		   <span class="glyphicon glyphicon-remove"></span> Delete
+		<% end -%>
+	</li>
+</ul>
 
-<p>
-  <b>Application term:</b>
-  <%= @ais_checklist.application_term %>
-</p>
-
-<p>
-  <b>Application number:</b>
-  <%= @ais_checklist.application_number %>
-</p>
-
-<p>
-  <b>Requirement code:</b>
-  <%= @ais_checklist.requirement_code %>
-</p>
-
-<p>
-  <b>Received date:</b>
-  <%= @ais_checklist.received_date %>
-</p>
-
-<p>
-  <b>Item:</b>
-  <%= @ais_checklist.item %>
-</p>
-
-<p>
-  <b>Item description:</b>
-  <%= @ais_checklist.item_description %>
-</p>
-
-<p>
-  <b>Ckst code:</b>
-  <%= @ais_checklist.ckst_code %>
-</p>
-
-<p>
-  <b>Mandatory:</b>
-  <%= @ais_checklist.mandatory %>
-</p>
-
-
-<%= link_to 'Edit', edit_ais_checklist_path(@ais_checklist) %> |
-<%= link_to 'Back', ais_checklists_path %>
+<%= render 'details' %>

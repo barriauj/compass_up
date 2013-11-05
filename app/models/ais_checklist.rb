@@ -1,15 +1,17 @@
 class AisChecklist < ActiveRecord::Base
   attr_accessible :application_number, :application_term, :banner_pidm, :ckst_code, :item, :item_description, :mandatory, :received_date, :requirement_code
 
+  validates :banner_pidm, :application_term, :application_number, :requirement_code, presence: true
+  
   # BANNERPIDM^APPLICATIONTERM^APPLICATIONNUMBER^REQUIREMENTCODE^RECEIVEDDATE^ITEM^ITEMDESCRIPTION^CKST_CODE^MANDATORY^
-  def self.import(file)
+  def self.import(file, terms = [])
     spreadsheet = open_spreadsheet(file)
     header = ["banner_pidm", "application_term", "application_number", "requirement_code", "received_date", "item", "item_description", "ckst_code", "mandatory"]
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       record = new
       record.attributes = row.to_hash.slice(*accessible_attributes)
-      record.save!
+      record.save! if terms.include?(record.application_term)
     end
   end
 

@@ -44,7 +44,7 @@ class AisChecklistsController < ApplicationController
 
     respond_to do |format|
       if @ais_checklist.save
-        format.html { redirect_to @ais_checklist, notice: 'Ais checklist was successfully created.' }
+        format.html { redirect_to @ais_checklist, notice: 'Record was successfully created.' }
         format.json { render json: @ais_checklist, status: :created, location: @ais_checklist }
       else
         format.html { render action: "new" }
@@ -60,13 +60,18 @@ class AisChecklistsController < ApplicationController
 
     respond_to do |format|
       if @ais_checklist.update_attributes(params[:ais_checklist])
-        format.html { redirect_to @ais_checklist, notice: 'Ais checklist was successfully updated.' }
+        format.html { redirect_to @ais_checklist, notice: 'Record was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.json { render json: @ais_checklist.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # GET /@ais_checklists/1/are_you_sure
+  def are_you_sure
+    @ais_checklist = AisChecklist.find(params[:id])
   end
 
   # DELETE /ais_checklists/1
@@ -76,18 +81,21 @@ class AisChecklistsController < ApplicationController
     @ais_checklist.destroy
 
     respond_to do |format|
-      format.html { redirect_to ais_checklists_url }
+      format.html { redirect_to ais_checklists_url, notice: 'Record was successfully deleted.' }
       format.json { head :no_content }
     end
   end
 
+  def show_import
+  end
+  
   def import
-    if params[:file]
+    if params[:file] && params[:spring_term] && params[:summer_term] && params[:fall_term]
       AisChecklist.delete_all
-      AisChecklist.import(params[:file])
-      redirect_to ais_checklists_url, notice: "Records imported."
+      AisChecklist.import(params[:file], [params[:spring_term], params[:summer_term], params[:fall_term]])
+      redirect_to ais_checklist_url, notice: "Records imported."
     else
-      redirect_to ais_checklists_path, alert: "Please select a file."
+      redirect_to show_import_ais_checklist_path, alert: "Please enter all terms and select a file."
     end
   end  
 

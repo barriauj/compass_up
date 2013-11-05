@@ -1,17 +1,17 @@
 class AisApplicationComment < ActiveRecord::Base
   attr_accessible :application_number, :application_term, :banner_pidm, :comment, :originator
   
-  validates :application_number, :application_term, :banner_pidm, :comment, :originator, presence: true
+  validates :application_number, :application_term, :banner_pidm, :originator, presence: true
   
   # BannerPIDM^ApplicationTerm^ApplicationNumber^Originator^Comment
-  def self.import(file)
+  def self.import(file, terms = [])
     spreadsheet = open_spreadsheet(file)
     header = ["banner_pidm", "application_term", "application_number", "originator", "comment"]
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       record = new
       record.attributes = row.to_hash.slice(*accessible_attributes)
-      record.save!
+      record.save! if terms.include?(record.application_term)
     end
   end
 

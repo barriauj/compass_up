@@ -1,5 +1,23 @@
-<h1>New ais_checklist</h1>
+<div class="page-header">
+  <h2>New AIS Checklist</h2>
+</div>
+
+<ul class="nav nav-tabs">
+	<li>
+		<%= link_to ais_checklists_path do -%>
+		   <span class="glyphicon glyphicon-list"></span> List
+		<% end -%>
+	</li>
+	<li class="active">
+		<%= link_to new_ais_checklist_path do -%>
+		   <span class="glyphicon glyphicon-plus"></span> Add New
+		<% end -%>
+	</li>
+	<li>
+		<%= link_to show_import_ais_checklists_path do -%>
+		   <span class="glyphicon glyphicon-import"></span> Import
+		<% end -%>
+	</li>
+</ul>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', ais_checklists_path %>

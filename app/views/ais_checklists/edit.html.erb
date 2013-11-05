@@ -1,6 +1,28 @@
-<h1>Editing ais_checklist</h1>
+<div class="page-header">
+  <h2>Update AIS Checklist</h2>
+</div>
+
+<ul class="nav nav-tabs">
+	<li>
+		<%= link_to ais_checklists_path do -%>
+		   <span class="glyphicon glyphicon-list"></span> List
+		<% end -%>
+	</li>
+	<li>
+		<%= link_to @ais_checklist do -%>
+		   <span class="glyphicon glyphicon-info-sign"></span> Details
+		<% end -%>
+	</li>
+	<li class="active">
+		<%= link_to edit_ais_checklist_path(@ais_checklist) do -%>
+		   <span class="glyphicon glyphicon-pencil"></span> Edit
+		<% end -%>
+	</li>
+	<li>
+		<%= link_to are_you_sure_ais_checklist_path(@ais_checklist) do -%>
+		   <span class="glyphicon glyphicon-remove"></span> Delete
+		<% end -%>
+	</li>
+</ul>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @ais_checklist %> |
-<%= link_to 'Back', ais_checklists_path %>
