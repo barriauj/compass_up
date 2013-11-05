@@ -1,6 +1,29 @@
 class BootstrappedFormBuilder < ActionView::Helpers::FormBuilder
   delegate :content_tag, :submit_tag, :tag, to: :@template
   
+  def error_messages
+    if object.errors.full_messages.any?
+      content_tag(:div, class: "form-group") do
+        content_tag(:div, class: "col-sm-offset-2 col-sm-10") do
+          content_tag(:div, class: "panel panel-default panel-danger") do
+            content_tag(:div, class: "panel-heading") do
+              content_tag(:h2, class: "panel-title") do
+                "#{object.errors.count} #{"error".pluralize(object.errors.count)} prohibited this record from being saved:"
+              end
+            end +
+            content_tag(:div, class: "panel-body") do
+              content_tag(:ul) do
+                object.errors.full_messages.map do |msg|
+                  content_tag(:li, msg)
+                end.join.html_safe
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+
   def bs_text_area(method, options = {})
     options[:label] ||= method.to_s.humanize
     options[:class] ||= "form-control"

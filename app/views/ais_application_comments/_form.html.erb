@@ -1,6 +1,6 @@
 <%= bootstrap_form_for @ais_application_comment do |f| %>
 
-  <%= render 'layouts/form_errors', record: @ais_application_comment %>
+  <%= f.error_messages %>
 
 	<%= f.bs_text_field :banner_pidm, label: "PIDM", placeholder: "PIDM", help_text: "Required." %>
 	

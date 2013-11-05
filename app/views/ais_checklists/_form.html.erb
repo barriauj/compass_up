@@ -1,6 +1,6 @@
 <%= bootstrap_form_for @ais_checklist do |f| %>
   
-	<%= render 'layouts/form_errors', record: @ais_checklist %>
+	<%= f.error_messages %>
 
 	<%= f.bs_text_field :banner_pidm, label: "PIDM", placeholder: "PIDM", help_text: "Required." %>
 	
