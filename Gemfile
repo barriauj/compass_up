@@ -43,6 +43,7 @@ gem 'net-sftp'
 gem 'figaro'
 gem 'gpgme'
 gem 'kaminari'
+gem 'validates_timeliness', '~> 3.0'
 
 group :development do
   gem 'better_errors'

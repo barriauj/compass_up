@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  effective_on: 2013-11-05
+  spring: MyString
+  summer: MyString
+  fall: MyString
+
+two:
+  effective_on: 2013-11-05
+  spring: MyString
+  summer: MyString
+  fall: MyString

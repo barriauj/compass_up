@@ -1,5 +1,12 @@
 CompassUp::Application.routes.draw do
 
+  resources :ais_terms do
+    member do
+      get :delete
+    end
+  end
+
+
   resources :ais_checklists do
     member do
       get :are_you_sure

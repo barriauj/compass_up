@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131024200635) do
+ActiveRecord::Schema.define(:version => 20131105185205) do
 
   create_table "ais_application_comments", :force => true do |t|
     t.string   "banner_pidm"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(:version => 20131024200635) do
     t.string   "mandatory"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "ais_terms", :force => true do |t|
+    t.date     "effective_on"
+    t.string   "spring"
+    t.string   "summer"
+    t.string   "fall"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end

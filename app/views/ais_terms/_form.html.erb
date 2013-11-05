@@ -1,0 +1,16 @@
+<%= bootstrap_form_for @ais_term do |f| %>
+  
+	<%= f.error_messages %>
+
+	<%= f.bs_text_field :effective_on, label: "Effective On", placeholder: "Effective On", help_text: "Required. Format: yyyy-mm-dd" %>
+	
+	<%= f.bs_text_field :spring, placeholder: "Spring", help_text: "Required." %>
+	
+	<%= f.bs_text_field :summer, placeholder: "Summer", help_text: "Required." %>
+	
+	<%= f.bs_text_field :fall, placeholder: "Fall", help_text: "Required." %>
+	
+  <%= f.bs_submit "Submit" %>
+	
+<% end %>
+

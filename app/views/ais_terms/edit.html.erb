@@ -1,0 +1,13 @@
+<div class="page-header">
+  <h2>Update AIS Term</h2>
+</div>
+
+<ul class="nav nav-tabs">
+	<%= nav_tab_link_to ais_terms_path, "List", "glyphicon-list" %>
+	<%= nav_tab_link_to new_ais_term_path, "Add New", "glyphicon-plus" %>
+	<%= nav_tab_link_to @ais_term, "Details", "glyphicon-info-sign" %>
+	<%= nav_tab_link_to edit_ais_term_path(@ais_term), "Edit", "glyphicon-pencil", class: "active" %>
+	<%= nav_tab_link_to delete_ais_term_path(@ais_term), "Delete", "glyphicon-remove" %>
+</ul>
+
+<%= render 'form' %>
